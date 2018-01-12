@@ -1,0 +1,2045 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrartcl
+\begin_preamble
+\input{NotebookPreamble.tex}
+\end_preamble
+\options DIV13,numbers=noenddot,pointlessnumbers,fleqn
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "helvet" "default"
+\font_typewriter "courier" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_title "Rocket Lab Practical Handout"
+\pdf_author "Jeremy Daily"
+\pdf_subject "ME 4024: Machine Dynamics"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "citecolor = blue, urlcolor = blue, filecolor = blue, linkcolor=blue"
+\papersize letterpaper
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Title
+Jumping Impulse
+\end_layout
+
+\begin_layout Author
+ME4020: Machine Dynamics Lab
+\end_layout
+
+\begin_layout Section
+Objective 
+\end_layout
+
+\begin_layout Standard
+This lab has two major objectives: 1) to measure and understand impulse
+ and how it relates to force and change in velocity, and 2) understand how
+ multiple linear regression works for calibrating a force plate.
+\end_layout
+
+\begin_layout Subsection
+Calibration Using Multiple Regression
+\end_layout
+
+\begin_layout Standard
+Often real applications require using multiple variables and simple line
+ fitting is insufficient.
+ This lab introduces the student to the concept of multiple linear regression.
+\end_layout
+
+\begin_layout Subsection
+Measure Force and Determine Impulse
+\end_layout
+
+\begin_layout Standard
+After completing this lab, students should have first hand experience relating
+ force, impulse and velocity for straight line motion.
+ 
+\end_layout
+
+\begin_layout Section
+Theory 
+\end_layout
+
+\begin_layout Subsection
+Determining Jump Height Based on Impulse
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+psset{unit=.8in,arrowscale=2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{pspicture}(-1.5,-2)(1.5,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+psgrid
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rput(0,.5){
+\backslash
+includegraphics[height=3in]{JumperSillouette.eps}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rput(0,0){
+\backslash
+includegraphics[height=.5in]{COM.eps}}%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+psline[linewidth=2pt]{->}(0,0)(0,2)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+uput[u](0,2){$F$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+psline[linewidth=2pt]{->}(0,0)(0,-1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+uput[d](0,-1.5){$W$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+psline{|->}(-1.5,0)(-1.5,1)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+uput[u](-1.5,1){$+y$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pspicture}
+\backslash
+hfill
+\backslash
+begin{pspicture}(-1.5,-2)(1.5,3)
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+psgrid
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rput(0,.5){
+\backslash
+includegraphics[height=3.in]{JumperSillouette.png}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rput(0,0){
+\backslash
+includegraphics[height=.5in]{COM.eps}}%
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+psline[linewidth=2pt]{->}(0,0)(0,1.9)
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+uput[u](0,1.9){$
+\backslash
+ddot{y}$}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+rput(-1.5,0){
+\backslash
+Huge{=}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{pspicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The Free body Diagram (FBD) and the Inertial Response Diagram (IRD) as it
+ relates to a jumper.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-Free-bodyDforJump"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Jumping requires a person to exert a force on the ground (or platform) over
+ some time.
+ This force starts with the static weight of the jumper, then reduces as
+ the jumper squats during the counter movement.
+ The legs then begin pushing back on the floor as the jumper accelerates
+ his/her mass upward.
+ This force builds during the jump then falls to zero as the shoes leave
+ the platform.
+ 
+\end_layout
+
+\begin_layout Standard
+If we assume the goal of jump height measurements are to determine the height
+ of the center of mass, then the body can be treated as a point mass.
+ Newton's 2nd Lay says:
+\begin_inset Formula 
+\begin{equation}
+\sum\vec{F}=m\vec{a}\label{eq:Jump2ndLaw}
+\end{equation}
+
+\end_inset
+
+ but for this case, the motion of interest is only in the vertical direction
+ and the forces consist of gravity and contact force.
+ Therefore, the free body diagram along with the inertial response diagram
+ is shown in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-Free-bodyDforJump"
+
+\end_inset
+
+.
+ Newton's Second Law can be rewritten in differential form as
+\begin_inset Formula 
+\begin{equation}
+\sum\vec{F}=m\frac{dv}{dt}\label{eq:2ndWithdV}
+\end{equation}
+
+\end_inset
+
+where the sum of the forces is 
+\begin_inset Formula $\sum\vec{F}=F-W$
+\end_inset
+
+ in the y direction.
+ Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2ndWithdV"
+
+\end_inset
+
+ can be integrated over some time:
+\begin_inset Formula 
+\begin{eqnarray}
+\int_{t_{0}}^{t}F(t)-W\;dt & = & \int_{v(t_{0})}^{v(t)}m\;dv\nonumber \\
+\int_{t_{0}}^{t}F(t)-W\;dt & = & m[v(t)-v(t_{0})]\nonumber \\
+\int_{t_{0}}^{t}F(t)-W\;dt & = & \frac{W}{g}[v(t)-v(t_{0})]\nonumber \\
+\frac{g}{W}\underbrace{\int_{t_{0}}^{t}F(t)-W\;dt}_{\mbox{external impulse}} & = & \underbrace{v(t)-v(t_{0})}_{\mbox{change in velocity}}\label{eq:changeInVel}
+\end{eqnarray}
+
+\end_inset
+
+which means a change in velocity can be determined if the external impulse
+ can be measured.
+ If the initial force measurement is taken while the jumper is still, then
+ the static weight 
+\begin_inset Formula $W$
+\end_inset
+
+ is known.
+ The time before the jump maneuver, when the jumper is still, will be denoted
+ at 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+ and can be any time when the jumper is still.
+ Since the jumper is still, 
+\begin_inset Formula $v(t_{0})=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The time history of force is measured and recorded as a series of forces
+ in time.
+ Since the goal is to determine the integral quantity of impulse, a numerical
+ approximation based on the trapezoidal rule will be used.
+ A formula for determining the impulse from 
+\begin_inset Formula $t=t_{0}$
+\end_inset
+
+ to 
+\begin_inset Formula $t=t_{n}$
+\end_inset
+
+ is as follows:
+\begin_inset Formula 
+\begin{equation}
+\int_{t_{0}}^{t_{n}}F(t)-W\;dt\approx\frac{\Delta t}{2}\sum_{i=1}^{n}(F_{i}+F_{i-1}-2W)\label{eq:impulsemeasure}
+\end{equation}
+
+\end_inset
+
+where there are 
+\begin_inset Formula $n+1$
+\end_inset
+
+ data points because 0 is used as for the first point.
+ The formula in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:impulsemeasure"
+
+\end_inset
+
+ can be easily implemented in a spreadsheet or computer program.
+ Once the impulse is estimated, the velocity at the end of the impulse can
+ be determined as
+\begin_inset Formula 
+\begin{equation}
+v(t_{n})=\frac{g}{W}\int F\;dt.\label{eq:Impulse}
+\end{equation}
+
+\end_inset
+
+This velocity will determine the take off velocity if the time 
+\begin_inset Formula $t_{n}$
+\end_inset
+
+ corresponds to the time when the nor more force is applied to the platform.
+ In other words, the jumper has taken off.
+ Once initial take-off velocity is known, the only force applied to the
+ body is weight.
+ Application of Newton's Law gives
+\begin_inset Formula 
+\begin{equation}
+\sum F=-W=ma\qquad\mbox{or}\qquad-W=\frac{W}{g}\ddot{y}
+\end{equation}
+
+\end_inset
+
+which leads to a simple 2nd order differential equation: 
+\begin_inset Formula $\ddot{y}=-g$
+\end_inset
+
+, 
+\begin_inset Formula $y(0)=0$
+\end_inset
+
+, and 
+\begin_inset Formula $\dot{y}(0)=v(t_{n})=v_{o}$
+\end_inset
+
+.
+ Since gravity imposes a constant acceleration, the following kinematic
+ relationship exists:
+\begin_inset Formula 
+\begin{equation}
+v^{2}=v_{o}^{2}-2gh\label{eq:kinematic}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $g$
+\end_inset
+
+ is the gravitational constant and 
+\begin_inset Formula $h$
+\end_inset
+
+ is the height change from the initial position.
+ At the peak height, the velocity is zero, so combining Eqs.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kinematic"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Impulse"
+
+\end_inset
+
+ gives and estimate for jump height:
+\begin_inset Formula 
+\begin{equation}
+h=\frac{g\left(\int F\;dt\right)^{2}}{2W^{2}}\label{eq:HeightFromImpulse}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Jump Height from Hang Time
+\end_layout
+
+\begin_layout Standard
+If the jumper takes off and lands at the same height, then the time traveling
+ up and down are equal.
+ A solution to the constant acceleration differential equation can be obtained
+ through integration and results in a quadratic polynomial:
+\begin_inset Formula 
+\begin{equation}
+y(t)=y_{o}+v_{o}t-\frac{g}{2}t^{2}
+\end{equation}
+
+\end_inset
+
+Since the times splits between up and down are even, and the time is 1/2
+ the hang time, the time equation can be written as
+\begin_inset Formula 
+\begin{equation}
+h=\frac{g}{2}\left(\frac{\mbox{hang time}}{2}\right)^{2}.
+\end{equation}
+
+\end_inset
+
+Hang-time is easily measured off the time history of force.
+ Keep in mind that the assumption is that the mass center starting height
+ is the same as the landing height.
+ This may be violated if the jumper tuck his/her knees and falls farther
+ than they took off.
+\end_layout
+
+\begin_layout Subsection
+Multiple Regression for Calibration
+\end_layout
+
+\begin_layout Standard
+The platform used for this experiment has three load cells at the corners
+ of the triangular structure.
+ Since there are three supports, the sum of the three reaction forces is
+ equal to the applied weight less the weight of the platform 
+\begin_inset Formula $W_{p}$
+\end_inset
+
+.
+ The weight of the platform is unknown and will be included in the measurement
+ as an offset.
+ In equation form, this is written as:
+\begin_inset Formula 
+\begin{equation}
+F=G_{A}V_{A}+G_{B}V_{B}+G_{C}V_{C}-W_{p}+\varepsilon
+\end{equation}
+
+\end_inset
+
+This is a linear equation and can be written in vector form:
+\begin_inset Formula 
+\begin{equation}
+\{F\}=\left[\begin{array}{cccc}
+V_{A} & V_{B} & V_{C} & -1\end{array}\right]\left\{ \begin{array}{c}
+G_{a}\\
+G_{B}\\
+G_{C}\\
+W_{p}
+\end{array}\right\} +\{\varepsilon\}
+\end{equation}
+
+\end_inset
+
+where the gain vector is constant regardless of the forces and voltages.
+ The residual term 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ exists because no measurement system is perfect.
+ There will be slight errors in the process so the linear relationship will
+ not be perfect.
+ The goal of the calibration is to determine the gain constants by minimizing
+ the residual based on multiple measurements.
+ If n measurements are available, then a series of linear equations can
+ be combined into one equation as follows:
+\begin_inset Formula 
+\begin{equation}
+\underbrace{\left\{ \begin{array}{c}
+F_{1}\\
+F_{2}\\
+\vdots\\
+F_{n}
+\end{array}\right\} }_{\mathbb{Y}}=\underbrace{\left[\begin{array}{cccc}
+V_{A,1} & V_{B,1} & V_{C,1} & -1\\
+V_{A,2} & V_{B,2} & V_{C,2} & -1\\
+\vdots & \vdots & \vdots & \vdots\\
+V_{A,n} & V_{B,n} & V_{C,n} & -1
+\end{array}\right]}_{\mathbb{X}}\underbrace{\left\{ \begin{array}{c}
+G_{a}\\
+G_{B}\\
+G_{C}\\
+W_{p}
+\end{array}\right\} }_{\beta}+\left\{ \begin{array}{c}
+\varepsilon_{1}\\
+\varepsilon_{2}\\
+\vdots\\
+\varepsilon_{n}
+\end{array}\right\} 
+\end{equation}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{equation}
+\mathbb{Y}=\mathbb{X}\beta+\vec{\varepsilon}\label{eq:Normaleauations}
+\end{equation}
+
+\end_inset
+
+If 
+\begin_inset Formula $n$
+\end_inset
+
+ is less than 4, then the system cannot be solved because it is under-determined.
+ If 
+\begin_inset Formula $n=4$
+\end_inset
+
+ then the system gives a unique solution, but if 
+\begin_inset Formula $n>4$
+\end_inset
+
+, then the system is overdetermined and a solution can be obtained by minimizing
+ the sum of the square of the residuals.
+ This is called the least-squares technique.
+ The sum of squares of the residuals is computed by
+\begin_inset Formula 
+\begin{equation}
+SSE=\vec{\varepsilon}^{T}\vec{\varepsilon}=\left\{ \begin{array}{cccc}
+\varepsilon_{1} & \varepsilon_{2} & \cdots & \varepsilon_{n}\end{array}\right\} \left\{ \begin{array}{c}
+\varepsilon_{1}\\
+\varepsilon_{2}\\
+\vdots\\
+\varepsilon_{n}
+\end{array}\right\} 
+\end{equation}
+
+\end_inset
+
+Equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Normaleauations"
+
+\end_inset
+
+ is known as the normal equation and the solution of the overdetermined
+ system that minimizes 
+\begin_inset Formula $SSE$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\begin{equation}
+\beta=(\mathbb{X}^{T}\mathbb{X})^{-1}\mathbb{X}^{T}\mathbb{Y}\label{eq:leastSquaresSolution}
+\end{equation}
+
+\end_inset
+
+Once 
+\begin_inset Formula $\beta$
+\end_inset
+
+ is determined with Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:leastSquaresSolution"
+
+\end_inset
+
+, the gain constants are known as well as the platform weight.
+ Further statistical analysis can be performed on the residuals to ensure
+ that the linear model is the most appropriate, but that is beyond the scope
+ of the course.
+\end_layout
+
+\begin_layout Section
+Procedure
+\end_layout
+
+\begin_layout Standard
+This lab requires four parts to complete: 1) Set up the computer DAQ system,
+ 2) Calibrate the force platform, 3) Obtain the data, and 4) analyze the
+ data to determine jump heights.
+ This section will provide the information needed to accomplish these tasks.
+\end_layout
+
+\begin_layout Subsection
+Set Up LabVIEW for Data Acquisition
+\end_layout
+
+\begin_layout Standard
+Open LabVIEW and create a VI capable of measuring the raw voltage from the
+ load cells.
+ The load cells are 2500# shear-beam load cells with a full bridge strain
+ gauge sensor grid.
+ The output on the sensors is 3mV/V at full scale.
+ To use these sensors, ensure they are plugged into the NI 9237 module of
+ the CompactDAQ and the CompactDAQ is on.
+ Once the physical hardware is connected, build a VI similar to the ones
+ shown in Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LabVIEW-Block-DiagramJump"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:LabVIEW-Front-PanelJumpo"
+
+\end_inset
+
+.
+ It is recommended to build and test the DAQ Assistant and Raw Waveform
+ Graphs first.
+\end_layout
+
+\begin_layout Standard
+When starting, use a value of 1 for all the gain constants and a value of
+ 0 for all the intercepts.
+ This will make the outputs simply the raw voltage.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQd.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+LabVIEW Block Diagram for acquiring data from the three independent load
+ cells.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LabVIEW-Block-DiagramJump"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQp.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+LabVIEW Front Panel for acquiring data from the three independent load cells.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:LabVIEW-Front-PanelJumpo"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top" width="4in">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Icon
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tool
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Properties
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQ_vi_Instance_0i.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DAQ Assistant
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sample Rate: 5k
+\begin_inset Newline newline
+\end_inset
+
+Samples to read: 1000 (continuously)
+\begin_inset Newline newline
+\end_inset
+
+Full Bridge with 5V internal excitation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQ_vi_Instance_1i.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sample Compression
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Reduction Factor: 5 
+\begin_inset Newline newline
+\end_inset
+
+Reduction Method: Mean 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQ_vi_Instance_2i.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Filter Type: Lowpass 
+\begin_inset Newline newline
+\end_inset
+
+Cut-Off: 1000 
+\begin_inset Newline newline
+\end_inset
+
+IIR/FIR: Infinite Impulse Response (IIR) 
+\begin_inset Newline newline
+\end_inset
+
+Filter Topology: 
+\begin_inset Newline newline
+\end_inset
+
+Butterworth Order: 4 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename JumpDAQ_vi_Instance_3i.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Collector
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of Points to Collect: 20000
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+LabVIEW VI Configuration Properties
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Determine Gain Constants
+\end_layout
+
+\begin_layout Standard
+Once the VI works and displays the average voltage over a period of time,
+ the calibration can commence.
+ Start by obtaining baseline data and record the voltage outputs for no
+ load.
+ Then take a 65-lb dumbbell and place it anywhere on the platform.
+ Record the new voltages.
+ Move the weight to another location (as far away as possible) and repeat
+ recording the voltages.
+ A table for gathering the data may look like the on shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Data-for-Calibration"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="12" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="18text%">
+<column alignment="center" valignment="top" width="18text%">
+<column alignment="center" valignment="top" width="18text%">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Total Weight (lb)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Location 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Location 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltage A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltage B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Voltage C
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+65
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+N/A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over A
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over B
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+over C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+130
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+middle
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+195
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anywhere
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+260
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+anywhere
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Data collection table for calibration.
+ Please ask for assistance when moving weights if you are uncomfortable
+ with the task.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Data-for-Calibration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Use the table to build the 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ matrix and 
+\begin_inset Formula $\mathbb{Y}$
+\end_inset
+
+ vector in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Normaleauations"
+
+\end_inset
+
+ and solve for 
+\begin_inset Formula $\beta$
+\end_inset
+
+ to get the gains.
+ Next, enter the calculated gain values into the LabVIEW program to get
+ a signal output in pounds.
+ 
+\end_layout
+
+\begin_layout Standard
+Finally, each channel needs to be zeroed.
+ Therefore, run the instrument with no weight on the platform.
+ Record the steady output for the individual channels and use those for
+ intercept values in the LabVIEW vi.
+ Be sure that the dynamic with is zero when no objects are on it.
+ The platform should be calibrated at this time.
+\end_layout
+
+\begin_layout Subsection
+Measure Impulse and Height
+\end_layout
+
+\begin_layout Standard
+In this section, the process of jumping and recording data are given.
+ This section is optional and not required for the lab.
+ Example data, as shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Example-jump-profile"
+
+\end_inset
+
+, are available for download from the course website in the form of a Matlab
+ .m file from JumpExample.m on Harvey.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename JumpForceProfile.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example jump profile data including three phases: take-off impulse, hang-time,
+ and landing impulse.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Example-jump-profile"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Have the jumper mount the platform and remain still.
+ Obtain a static weight.
+\end_layout
+
+\begin_layout Enumerate
+Have the jumper reach as high as possible and touch the slap sticks.
+ Be sure that the maximum reach is near the bottom of the stack of sticks
+ by adjusting the slap-stick height.
+\end_layout
+
+\begin_layout Enumerate
+Perform a couple practice jumps to get the feel of the platform and timing
+ on the data acquisition.
+ Jump using two feet and reach as high as possible on the slap-sticks.
+\end_layout
+
+\begin_layout Enumerate
+Save the time history of force to a data file and import the data into Excel
+ or Matlab for further analysis.
+\end_layout
+
+\begin_layout Subsection
+Data Analysis
+\end_layout
+
+\begin_layout Standard
+There are three different segments to measure jump height from the impulse:
+ the take off impulse, time in the air, and landing impulse.
+ The force vs.
+ time history is capable of providing enough information to perform the
+ analysis.
+ Use the example file or your own file to perform the analysis based on
+ the Theory section of the lab.
+ In Matlab, the 
+\family typewriter
+cumtrapz
+\family default
+ command can be useful for determining impulse.
+\end_layout
+
+\begin_layout Section
+Reporting Requirements
+\end_layout
+
+\begin_layout Standard
+Please turn in the following as a single PDF file uploaded to Harvey two
+ weeks after you conduct the lab.
+\end_layout
+
+\begin_layout Enumerate
+A coversheet with your name, lab section, date the lab was performed, and
+ your group member names.
+\end_layout
+
+\begin_layout Enumerate
+A print of your LabVIEW Front panel
+\end_layout
+
+\begin_layout Enumerate
+A print of your LabVIEW Block Diagram
+\end_layout
+
+\begin_layout Enumerate
+Raw Data from your calibration procedure in table form
+\end_layout
+
+\begin_layout Enumerate
+Determination of your gain constants
+\end_layout
+
+\begin_layout Enumerate
+A record of the offsets needed to zero the platform
+\end_layout
+
+\begin_layout Enumerate
+Determination of the jump height from the slap-sticks
+\end_layout
+
+\begin_layout Enumerate
+A graph of the jump and landing profile (i.e.
+ the force time history)
+\end_layout
+
+\begin_layout Enumerate
+Determination of the takeoff impulse
+\end_layout
+
+\begin_layout Enumerate
+Determination of the jump height from takeoff impulse
+\end_layout
+
+\begin_layout Enumerate
+Determination of the hang time
+\end_layout
+
+\begin_layout Enumerate
+Calculation of the jump height given hang time
+\end_layout
+
+\begin_layout Enumerate
+A table summarizing the jump height measures from 1) slap sticks, 2) take-off
+ impulse, and 3) hang-time.
+ Also include relative differences assuming the slap-sticks as the standard.
+\end_layout
+
+\begin_layout Enumerate
+Please note the similarities and differences between the measures.
+ Comment on which one you think is most reliable.
+\end_layout
+
+\end_body
+\end_document
