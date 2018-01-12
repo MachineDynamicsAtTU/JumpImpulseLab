@@ -96,8 +96,12 @@
 Jumping Impulse
 \end_layout
 
-\begin_layout Author
+\begin_layout Subject
 ME4020: Machine Dynamics Lab
+\end_layout
+
+\begin_layout Date
+Spring 2018
 \end_layout
 
 \begin_layout Section
@@ -253,7 +257,7 @@ psgrid
 \backslash
 rput(0,.5){
 \backslash
-includegraphics[height=3.in]{JumperSillouette.png}}
+includegraphics[height=3.in]{JumperSillouette.eps}}
 \end_layout
 
 \begin_layout Plain Layout
@@ -338,7 +342,7 @@ Jumping requires a person to exert a force on the ground (or platform) over
 \begin_layout Standard
 If we assume the goal of jump height measurements are to determine the height
  of the center of mass, then the body can be treated as a point mass.
- Newton's 2nd Lay says:
+ Newton's 2nd Law says:
 \begin_inset Formula 
 \begin{equation}
 \sum\vec{F}=m\vec{a}\label{eq:Jump2ndLaw}
